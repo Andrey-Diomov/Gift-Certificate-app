@@ -1,0 +1,26 @@
+plugins {
+    id 'java'
+}
+
+group 'com.epam.esm'
+version '0.0.1-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation project(":repository")
+    implementation group: 'org.modelmapper', name: 'modelmapper', version: '2.4.4'
+    implementation group: 'javax.validation', name: 'validation-api', version: '2.0.1.Final'
+    implementation group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.13.0'
+    testImplementation group: 'org.mockito', name: 'mockito-core', version: '4.1.0'
+    testImplementation ("org.mockito:mockito-all:1.10.19")
+    testImplementation("org.junit.jupiter:junit-jupiter:5.7.0")
+    implementation group: 'org.hibernate', name: 'hibernate-validator', version: '6.2.0.Final'
+    implementation 'io.jsonwebtoken:jjwt:0.9.1'
+}
+
+test {
+    useJUnitPlatform()
+}

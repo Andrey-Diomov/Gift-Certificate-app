@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+    <Properties>
+
+        <Property name="filename">./logs/SecurityApp.log</Property>
+        <Property name="basePatterLayout">%d{ISO8601} [%-5p] (%F:%L) - %m%n</Property>
+        <Property name="filePatterLayout">%d{yyyy.MM.dd HH:mm:ss} [%-5p] [%t] %logger{36} (%F:%L) - %m%n</Property>
+
+    </Properties>
+
+    <appenders>
+
+        <File name="FILE" fileName="${filename}">
+            <PatternLayout pattern="${filePatterLayout}"/>
+        </File>
+
+    </appenders>
+
+    <loggers>
+
+        <logger name="com.epam.esm" level="debug" additivity="false">
+            <appender-ref ref="FILE"/>
+        </logger>
+
+        <root level="debug">
+        </root>
+
+    </loggers>
+
+</configuration>
