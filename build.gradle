@@ -8,10 +8,6 @@ plugins {
     id 'jacoco'
 }
 
-//group = 'com.epam.esm'
-//version = '0.0.1-SNAPSHOT'
-//sourceCompatibility = '11'
-
 allprojects {
     apply plugin: 'application'
     apply plugin: 'org.springframework.boot'
@@ -20,7 +16,7 @@ allprojects {
     apply plugin: 'jacoco'
     apply plugin: 'war'
 
-    mainClassName = 'com.epam.esm.GiftCertificateAppApplication' // TODO
+    mainClassName = 'com.epam.esm.GiftCertificateAppApplication'
 
         dependencies {
             implementation 'org.springframework.boot:spring-boot-starter-data-jdbc'
@@ -42,12 +38,14 @@ allprojects {
 
     jacocoTestReport {
         reports {
-            //xml.required = true
-            csv.required = false
-            html.required = true
-            //xml.destination file("${buildDir}/jacoco/jacoco.xml")
+            csv.enabled false
+            xml.enabled false
             html.destination file("${buildDir}/jacoco/jacocoHtml")
         }
+    }
+
+    test {
+        finalizedBy jacocoTestReport
     }
 
         configurations {
@@ -65,20 +63,16 @@ allprojects {
 //        }
     }
 
-sonarqube {
-    properties {
-        property "sonar.projectName", "GiftCertificatesApp"
-        property "sonar.projectKey", "org.sonarqube:gradle-multimodule"
-        property "sonar.sourceEncoding", "UTF-8"
-        property "sonar.sources", "src"
-        property "sonar.core.codeCoveragePlugin", "jacoco"
-        property "sonar.coverage.jacoco.xmlReportPaths", "${project.buildDir}/jacoco/jacoco.xml"
-    }
-}
-
-test {
-    finalizedBy jacocoTestReport
-}
+//sonarqube {
+//    properties {
+//        property "sonar.projectName", "GiftCertificatesApp"
+//        property "sonar.projectKey", "org.sonarqube:gradle-multimodule"
+//        property "sonar.sourceEncoding", "UTF-8"
+//        property "sonar.sources", "src"
+//        property "sonar.core.codeCoveragePlugin", "jacoco"
+//        property "sonar.coverage.jacoco.xmlReportPaths", "${project.buildDir}/jacoco/jacoco.xml"
+//    }
+//}
 
 test {
     useJUnitPlatform()
