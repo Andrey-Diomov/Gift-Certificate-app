@@ -53,26 +53,7 @@ allprojects {
                 extendsFrom annotationProcessor
             }
         }
-
-//        bootJar {
-//            enabled = true
-//        }
-//
-//        jar {
-//            enabled = true
-//        }
     }
-
-//sonarqube {
-//    properties {
-//        property "sonar.projectName", "GiftCertificatesApp"
-//        property "sonar.projectKey", "org.sonarqube:gradle-multimodule"
-//        property "sonar.sourceEncoding", "UTF-8"
-//        property "sonar.sources", "src"
-//        property "sonar.core.codeCoveragePlugin", "jacoco"
-//        property "sonar.coverage.jacoco.xmlReportPaths", "${project.buildDir}/jacoco/jacoco.xml"
-//    }
-//}
 
 test {
     useJUnitPlatform()
