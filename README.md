@@ -1,8 +1,15 @@
 # Gift-Certificate-app
 
-This is jenkins module
+This is jenkins module(6)
+
 Stack :
 Java 8,
-spring (Boot, Security,JPA),
+Spring (Boot, Security),
+JPA,
+REST,
+Gradle,
 Lombok,
-MySQL/Postgres
+PostgreSQL,
+JUnit,
+Mockito.
+
